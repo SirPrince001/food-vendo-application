@@ -6,5 +6,13 @@ const vendorMenu = new Schema({
     description:String,
     price:String,
     quantity:Number,
-    dateTimeCreated:Data
+    dateTimeCreated:{
+        type:Date,
+        default:Date.now()
+    },
+    vendorId: [Schema.Types.ObjectId],
+    isRecurring:Boolean,
+    frequencyOfReocurrence:Boolean
 })
+
+module.exports = mongoose.model('Menu' , vendorMenu)
