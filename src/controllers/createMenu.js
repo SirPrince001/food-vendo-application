@@ -32,24 +32,21 @@ exports.updateMenu = async (request) => {
       400,
       "Please a valid token before you can a update a menu"
     );
-  let { id, name, description, price, quantity } = request.body;
+  let { name, description, price, quantity } = request.body;
   let payload = jwt.verify(token, process.env.SECRETKEY);
+  const id = request.params.id;
+
   if (payload.role === "Vendor" && payload.id === id) {
-      console.log(payload.id)
-    let updatedMenu = await Menu.updateOne(
-      { _id: id },{$addToSet:
-      {
-        name: name,
-        description: description,
-        price: price,
-        quantity: quantity,
-      } }
-    );
-    console.log(updatedMenu)
-   //if(updatedMenu.nModified > 0)
+    const updatedMenu = new Menu({
+      name: name,
+      description: description,
+      price: price,
+      quantity: quantity,
+    });
+    await Menu.findByIdAndUpdate(id, updatedMenu);
     return new Response(200, {
       status: "Successful",
-      updated_menu: updatedMenu
+      updated_menu: updatedMenu,
     });
   } else {
     throw new ResponseError(400, "Unauthorize , You cannot update menu");

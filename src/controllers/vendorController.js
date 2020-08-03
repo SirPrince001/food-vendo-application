@@ -25,13 +25,13 @@ exports.vendorsignUp = async (request) => {
     data = data.toJSON();
     delete data.password;
 
-    const token = jwt.sign(payload, process.env.SECRETKEY);
+    //const token = jwt.sign(payload, process.env.SECRETKEY);
 
     return new Response(200, {
       status: "Successful",
       responseMessage: {
         data,
-        token,
+        
       },
     });
   } else {
