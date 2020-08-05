@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 let customerOrder = new Schema({
+    customer:{type:mongoose.Schema.Types.ObjectId , ref: 'Customer'},
     customerId :String,
     vendorId :String,
     description:String,

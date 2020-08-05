@@ -12,3 +12,5 @@ const customerInfo = new Schema({
 
     }
 })
+
+module.exports = mongoose.model('Customer' , customerInfo)
