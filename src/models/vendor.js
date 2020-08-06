@@ -14,7 +14,9 @@ const vendor = new Schema({
   },
   password:{
     type:String,
-    delete:false
+    required:true,
+    delete:false,
+    minlength:true
   },
   phone: Number,
   dateTimeCreated:{
