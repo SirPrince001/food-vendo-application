@@ -2,7 +2,7 @@ const Order = require("../models/order");
 const { Response, ResponseError } = require("../utils/response");
 const jwt = require("jsonwebtoken");
 
-exports.npm run viewOrders = async (request) => {
+exports.viewOrders = async (request) => {
   const token = request.get("Authorization");
   if (!token) throw new ResponseError(400, "Please Provide Vendor token");
 

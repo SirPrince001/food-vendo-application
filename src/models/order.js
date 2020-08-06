@@ -10,11 +10,25 @@ let customerOrder = new Schema({
     amountDue:Number,
     amountPaid:Number,
     amountOutstanding:Number,
-    orderStatus:String,
+    orderStatus:{
+        preparing:{
+            type:Boolean,
+            required:true
+        },
+        ontheway:{
+            type:Boolean,
+            required:true
+        },
+        delivered:{
+            type:Boolean,
+            required:true
+        }
+    },
     dateAndTimeofOrder:{
         type:Date,
         default:Date.now()
     }
+    
 
 })
 
