@@ -32,9 +32,10 @@ exports.updateMenu = async (request) => {
       400,
       "Please a valid token before you can a update a menu"
     );
-  let { name, description, price, quantity } = request.body;
+    const id = request.params.id;
+  let {name, description, price, quantity } = request.body;
   let payload = jwt.verify(token, process.env.SECRETKEY);
-  const id = request.params.id;
+ 
 
   if (payload.role === "Vendor" && payload.id === id) {
     const updatedMenu = new Menu({
