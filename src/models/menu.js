@@ -10,7 +10,7 @@ const vendorMenu = new Schema({
         type:Date,
         default:Date.now()
     },
-    vendorId: [Schema.Types.ObjectId],
+    vendorId: [{type:Schema.Types.ObjectId , ref: 'VENDOR', required:true}],
     isRecurring:Boolean,
     frequencyOfReocurrence:Boolean
 })

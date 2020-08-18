@@ -6,5 +6,5 @@ const trackOrders = require('../controllers/orderStatusController')
 
 router.post("/api/v1/order", injector(Orders.Order));
 router.post("/api/v1/vieworders", injector(viewOrders.viewOrders));
-router.post("/api/v1/ontheway-order/:id", injector(trackOrders.OrderOntheway));
+router.post("/api/v1/order-status", injector(trackOrders.OrderInfo));
 module.exports = router;

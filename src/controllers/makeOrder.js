@@ -15,29 +15,15 @@ exports.Order = async (request) => {
     try {
       const verifyCustomer = jwt.verify(token, process.env.SECRETKEY);
   
-      // let customer_Id = await Customer.findById(verifyCustomer.id);
-      
-      // if (!customer_Id)
-      //   throw new ResponseError(400, "No Customer with such ID exist");
-    
       if (verifyCustomer.role === "Customer") {
-        let {
-          customerId,
-          vendorId,
-          description,
-          itemOrdered,
-          amountDue,
-          amountPaid,
-          amountOutstanding,
+        let {customerId, customer ,itemOrdered,
+          
         } = request.body;
         let order = new CustomerOrder({
-          customerId: customerId,
-          vendorId: vendorId,
-          description: description,
-          itemOrdered: itemOrdered,
-          amountDue: amountDue,
-          amountPaid: amountPaid,
-          amountOutstanding: amountOutstanding,
+          customerId,
+          customer, 
+          itemOrdered,
+          
         });
         let displayOrder = await order.save();
         return new Response(200, {
