@@ -153,7 +153,7 @@
   }
   ```
 
-  ## Update Menu by ID*
+  ## Update Menu by ID
    > this route allows only vendor with token to edit and update Menu
 
    **ENDPOINT:** `/api/v1/update-menu/:id`
@@ -184,6 +184,17 @@
     }
     ```
    }
+   ## Order Status
+     > this route allows Vendor to set the order status ordered by the Customer 
+    - **ENDPOINT:** `/api/v1/order-status`
+    - **METHOD:** `POST`
+    -**BODY** 
+    ```json
+   
+   - *Request*
+   "orderId":"5f3aa35404b7846b472d5b70",
+   "orderStatus":"processing"
+      
 
 
 
